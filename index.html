@@ -3,241 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap cdn -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- boootswatch cdn-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/vapor/bootstrap.min.css">
-
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     
-    <script>
-        function cardInMouse(el){
-            $(el).css("transition","all 0.25s ease-in-out").addClass("border-secondary");
-        }
-        function cardOutMouse(el){
-            $(el).css("transition","all 0.25s ease-in-out").removeClass("border-secondary");
-        }
-        let progress = 0;
-        function progressGauge(){
-            $(".progress-bar").css("width", progress + "%");
-            if(progress < 50){
-                progress+=4;
-                setTimeout(progressGauge, 5);
-            }else if (progress < 80){
-                progress+=2;
-                setTimeout(progressGauge, 30);
-            }else if(progress < 100){
-                progress+=1;
-                setTimeout(progressGauge, 70);
-            }else {
-                setTimeout(() => {
-                    $(".all-hidden").css("display","block");
-                    $(".hidden-body").css("display","none");
-                }, 2000);
-            }
-        }
-        let index = 90 ;
-        function loadingLetter(){
-            if($(".all-hidden").css("display") !== "none"){
-                $(".progress-loading").css("filter","brightness("+ index + "%)")     
-            }else if(index === 90){
-                index = 100;
-                $(".progress-loading").css("filter","brightness("+ index + "%)")
-            }else if (index === 100){
-                index = 90;
-                $(".progress-loading").css("filter","brightness("+ index + "%)")
-            }
-            
-        }
-        $(function(){
-            // $(".all-hidden").css("display","block");
-            progressGauge();
-            if($(".all-hidden").css("display") === "none"){
-                setInterval(loadingLetter, 200);
-            }
-            
-        })
-    </script>
-    <title>김창엽의 포트폴리오</title>
+    <!-- js - main -->
+    <script src="./main.js"></script>
+    <!-- css - base -->
+    <link rel="stylesheet" href="./base.css">
+    <!-- css - main -->
+    <link rel="stylesheet" href="./main.css">
+    
+    <title>포트폴리오 선택하기</title>
+
 </head>
 <body>
-    <div class="all-hidden" style="display: none;">
-        <nav class="navbar navbar-expand-lg bg-primary"  data-bs-theme="dark" style="position: sticky!important; top: 0; z-index: 100;">
-            <div class="container">
-                <a class="navbar-brand" href="#">Chang`s Portfolio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="offcanvas" href="#Contact" role="button" aria-controls="Contact">
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-4 pt-4">
-                    <h2 class="mb-3">Profile</h2>
-                    <div class="card" onmouseenter="javascript:cardInMouse(this)" onmouseleave="javascript:cardOutMouse(this)">
-                        <div class="card-body">
-                            <h2 class="card-subtitle mb-2 text-muted pt-2">Introduce</h2>
-                            <div class="form-group">
-                                <div class="input-group mb-1">
-                                    <span class="input-group-text">이름</span>
-                                    <input type="text" class="form-control" value="김창엽" disabled>
-                                </div>
-                                <div class="input-group mb-1">
-                                    <span class="input-group-text">나이</span>
-                                    <input type="text" class="form-control" value="31(만30세)" disabled>
-                                </div>
-                                <div class="input-group mb-1">
-                                    <span class="input-group-text">지역</span>
-                                    <input type="text" class="form-control" value="경기 평택시 (근무지 무관)" disabled>
-                                </div>
-                                <div class="input-group mb-1">
-                                    <span class="input-group-text">학력</span>
-                                    <input type="text" class="form-control" value="평택고등학교 / 이과계열" disabled>
-                                </div>
-                            </div>
-                            <h2 class="card-subtitle mb-2 text-muted pt-2">Skills</h2>
-                            <div class="card-header">프론트엔드</div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Html, Css</li>
-                                    <li class="list-group-item">Javascript,Jquery,Jsp,Jstl</li>
-                                    <li class="list-group-item">React.js</li>
-                                </ul>
-                            </div>
-                            <div class="card-header">백엔드</div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Java</li>
-                                    <li class="list-group-item">Tomcat,Mysql</li>
-                                </ul>
-                            </div>
-                            <div class="card-header">협업 & 툴</div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">VSC, Eclipse, VS, Heidisql, Intellij</li>
-                                    <li class="list-group-item">Git lab, Git hub, fta, xampp</li>
-                                    <li class="list-group-item">Bootstrap, Figma, Tailwind ... </li>
-                                </ul>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 pt-4">
-                    <h2 class="mb-3">Career</h2>
-                    <div class="card mb-3" onmouseenter="javascript:cardInMouse(this)" onmouseleave="javascript:cardOutMouse(this)">
-                        <div class="card-body">
-                            <div class="card-header">현우의 컴퓨터 공방</div>
-                            <div class="card-body">
-                                <h4 class="card-title">웹 퍼블리셔로 시작하여 현재는 풀스택 개발자</h4>
-                                <p class="card-text">2023.06.01 ~ 현재까지 근무중입니다. 2달 계약직으로 시작하여 시니어 풀스택 개발자님과 협업 하며 근무하는 형태로 초기에 근무하였으며 현재는 정직원으로 채용되어 단독 업무수행 중입니다. 크게 달라진 건 없지만 구축 되어있는 서버를 기반으로 독학하여 개발을 하고있다는 점과 백엔드 부분도 열심히 공부중이라는 점이 강점이라 생각합니다.</p>
-                            </div>
-                            <div class="mb-3"></div>
-                            <div class="card-header">몽이네 해장국(외주)</div>
-                            <div class="card-body">
-                                <h4 class="card-title">크몽 외주 / 퍼블리싱</h4>
-                                <p class="card-text">2024.01 퍼블리싱 외주 업무 요청이 들어와서 빠르게 제작하였습니다. 소요기간이라 하기 애매하지만 php환경을 체험하게 된 경우입니다.</p>
-                            </div>
-                            <div class="mb-3"></div>
-                            <div class="card-header">유스내비(외주)</div>
-                            <div class="card-body">
-                                <h4 class="card-title">크몽 외주 / 퍼블리싱</h4>
-                                <p class="card-text">2024.02 약 150페이지 분량을 2주만에 퍼블리싱 해달라는 업무가 들어왔던 경우입니다. vue 환경을 위한 퍼블리싱을 했고, 퍼블리싱을 위한 환경으로는 vite 환경으로 제작되어있었습니다. Tailwind 라이브러리를 여기서 처음 사용해봤고 vite 또한 마찬가지 입니다. 처음하는게 많고 기간이 짧으니 그만큼 실력이 늘겠다 싶어 외주를 승낙하게 되었고 2주간 정말 퍼블리싱에만 매진해서 완료 했습니다.</p>
-                            </div>
-                            <div class="hidden" style="display: none;">
-                                <div class="card-header">404 Error</div>
-                                <div class="card-body">
-                                    <h4 class="card-title">아마 프론트엔드 일걸요?</h4>
-                                    <p class="card-text">Next Study == Dart</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 pt-4">
-                    <h2 class="mb-3">ETC.</h2>
-                    <div class="card mb-3" onmouseenter="javascript:cardInMouse(this)" onmouseleave="javascript:cardOutMouse(this)">
-                        <div class="card-body">
-                            <h2 class="card-subtitle mb-2 text-muted pt-2">My Style</h2>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">소통이 제일 중요</li>
-                                <li class="list-group-item">일 할때는 일만</li>
-                                <li class="list-group-item">안되면 될 때 까지</li>
-                                <li class="list-group-item">헤딩 전문가</li>
-                            </ul>
-                            <h2 class="card-subtitle mb-2 text-muted pt-2">Git-hub</h2>
-                            <a class="btn btn-primary git-a-tag d-flex" href="https://github.com/Muckki" role="button" target="_blank">
-                                <div class="col text-start"><svg class="w-75 w-lg-100" width="64px" height="64px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b035f3"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="24" cy="24" r="20" fill="#181717"></circle> <path d="M6.81348 34.235C9.24811 38.3138 13.0939 41.4526 17.6772 42.9784C18.6779 43.1614 19.0425 42.5438 19.0425 42.0134C19.0425 41.7938 19.0388 41.4058 19.0339 40.8866C19.0282 40.2852 19.0208 39.5079 19.0155 38.6124C13.4524 39.8206 12.2787 35.931 12.2787 35.931C11.3689 33.6215 10.0576 33.0064 10.0576 33.0064C8.2417 31.7651 10.1951 31.7896 10.1951 31.7896C12.2025 31.9321 13.2584 33.8511 13.2584 33.8511C15.0424 36.9071 17.94 36.0243 19.0794 35.5135C19.2611 34.2207 19.7767 33.3391 20.3489 32.8394C15.908 32.3348 11.2387 30.6183 11.2387 22.9545C11.2387 20.7715 12.0184 18.9863 13.2977 17.5879C13.0914 17.082 12.4051 15.0488 13.4929 12.2949C13.4929 12.2949 15.1725 11.7571 18.9934 14.3453C20.5883 13.9021 22.2998 13.6798 24.0003 13.6725C25.6983 13.6798 27.4099 13.9021 29.0072 14.3453C32.8256 11.7571 34.5016 12.2949 34.5016 12.2949C35.5931 15.0488 34.9067 17.082 34.7005 17.5879C35.9823 18.9863 36.757 20.7715 36.757 22.9545C36.757 30.638 32.0804 32.3286 27.6247 32.8234C28.343 33.441 28.9827 34.6614 28.9827 36.5277C28.9827 38.3152 28.9717 39.8722 28.9644 40.9035C28.9608 41.4143 28.9581 41.7962 28.9581 42.0134C28.9581 42.5487 29.3178 43.1712 30.3332 42.976C33.9844 41.7572 37.1671 39.5154 39.5403 36.5903C35.8734 41.1108 30.274 44 23.9997 44C16.6943 44 10.3038 40.0832 6.81348 34.235Z" fill="white"></path> </g></svg></div>
-                                <div class="col-10 my-auto">
-                                    <div class="row w-100">
-                                        <div class="col text-start">
-                                            Muckki - Overview
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col text-start text-truncate">
-                                            https://github-com/Muckki
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="f-container">
+        <div class="main-title">포트폴리오 선택하기</div>
+        <div class="main-sub-01">
+            입사지원한 회사를 선택해주세요
         </div>
-
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="Contact" aria-labelledby="ContactLabel">
-            <div class="offcanvas-header">
-            <h2 class="offcanvas-title" id="ContactLabel">Contact</h2>
-            <button type="button" class="btn-close text-reset bg-secondary-subtle" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div class="accordion" id="accordionContact">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                          Phone Number
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionContact">
-                        <div class="accordion-body">
-                            010-4291-7151<a class="btn btn-primary ms-3" href="tel:01042917151">Click</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Email Address
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionContact">
-                        <div class="accordion-body">
-                           ckdduq0508@gmail.com<a class="btn btn-primary ms-3" href="mailto:ckdduq0508@gmail.com">Click</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-        </div>
-    </div>
-    <div class="hidden-body" style="height: 100vh;">
-        <div class="hidden-else w-25 position-relative top-50 mx-auto">
-            <h1 class="progress-loading">Loading</h1>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+        <div class="main-sub-02">
         </div>
     </div>
 </body>
