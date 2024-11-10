@@ -21,7 +21,7 @@ $(function(){
 
 function mainButtonClick(el){
     if( $(el).attr("cd") == "2" ){
-        location.href = "./portfolio.html"
+        location.href = "./webs/portfolio.html"
     }else if ( $(el).attr("cd") == "1" ) {
         $(el).attr('disabled','true').css('cursor',"not-allowed")   
     }else {
