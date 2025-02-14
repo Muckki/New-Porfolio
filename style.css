@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'moneygraphy';
+    src: url('./font/Moneygraphy-Rounded.ttf') format('truetype');
+}
+/* 기본 스타일 */
+body {
+    font-family: 'moneygraphy'!important;
+    margin: 0;
+    padding: 0;
+    background-color: #372554!important;
+    transition: background-color 0.3s, color 0.3s;
+    
+    /* 드래그 방지 */
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: inherit;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* 다크모드 스타일 */
+.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode header {
+    background-color: #333;
+}
+
+.dark-mode button {
+    background-color: #555;
+    color: white;
+}
+
+/* 애니메이션 효과 */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 1s forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.zoom-in {
+    transform: scale(0.8);
+    opacity: 0;
+    animation: zoomIn 1s forwards;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
