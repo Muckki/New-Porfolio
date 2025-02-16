@@ -8,20 +8,30 @@ body {
     margin: 0;
     padding: 0;
     background-color: #372554!important;
-    
     /* 드래그 방지 */
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none
 }
-
+body *{
+    color: #FFF!important;
+}
 .link-text {
-    color: #fff!important;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .link-text:hover {
     color: #f1c40f!important;
+}
+
+/* 페이지 1 */
+#page1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
