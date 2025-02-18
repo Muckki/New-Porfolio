@@ -4,6 +4,7 @@
 }
 
 body {
+    position: relative;
     font-family: 'moneygraphy'!important;
     margin: 0;
     padding: 0;
@@ -25,12 +26,31 @@ body *{
 .link-text:hover {
     color: #f1c40f!important;
 }
+
+/* 페이지 전환효과 */
+@keyframes page {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        opacity: 1;
+        display: flex;
+    }
+}
+
 /* 페이지 1 */
-#page1 {
+.pages{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100%;
     width: 100%;
+    transition: opacity 1s ease-in-out;
+    animation: page 1s ease-in-out;
+    opacity: 0;
+}
+.pages.active {
+    opacity: 1;
 }
