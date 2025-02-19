@@ -39,6 +39,31 @@ body *{
     }
 }
 
+/* 도구 툴 효과 */
+@keyframes page-tool {
+    0% {
+        padding: 0.3rem;
+    }
+    30% {
+        padding: 0.6rem;
+    }
+    100% {
+        padding: 0.4rem;
+    }
+}
+.page-tool {
+    right: 2rem;
+    bottom: 3rem;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: padding 0.2s ease-in-out;
+}
+.page-tool.active {
+    animation: page-tool 0.7s ease-in-out;
+}
+
 /* 페이지 1 */
 .pages{
     display: flex;
