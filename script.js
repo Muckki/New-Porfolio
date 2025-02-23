@@ -28,3 +28,7 @@ function toolClick(el){
     }
 }
 // pageTiming 변경하는 함수 추가 예정( 도구 툴 ) , 로컬스토리지에 저장해 관리 추가
+
+function changePageTiming(el){
+    pageTiming = $(el).val()
+}
